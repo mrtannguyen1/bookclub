@@ -5,8 +5,8 @@ COPY . .
 RUN mvn clean package -DskipTests
 # Package stage
 #
-FROM openjdk:19
-COPY --from=build /target/app.jar app.jar
+FROM openjdk:20
+COPY --from=build /target/bookclub-0.0.1-SNAPSHOT.jar bookclub-0.0.1-SNAPSHOT.jar
 # ENV PORT=8080
 EXPOSE 8080
-ENTRYPOINT ["java","-jar", "app.jar"]
+ENTRYPOINT ["java","-jar", "bookclub-0.0.1-SNAPSHOT.jar"]
